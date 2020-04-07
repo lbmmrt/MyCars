@@ -41,6 +41,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3290A594243B5BF6008D4C64 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				359705B91C0829ED00D13FE9 /* data.plist */,
+				359705A71C08159E00D13FE9 /* MyCars.xcdatamodeld */,
+				358A82FC1DD2EA530043EADA /* Car+CoreDataProperties.swift */,
+				358A82FB1DD2EA530043EADA /* Car+CoreDataClass.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		359705941C08159E00D13FE9 = {
 			isa = PBXGroup;
 			children = (
@@ -65,11 +76,8 @@
 				359705AA1C08159E00D13FE9 /* Assets.xcassets */,
 				359705A41C08159E00D13FE9 /* Main.storyboard */,
 				359705AC1C08159E00D13FE9 /* LaunchScreen.storyboard */,
-				359705B91C0829ED00D13FE9 /* data.plist */,
 				359705AF1C08159E00D13FE9 /* Info.plist */,
-				359705A71C08159E00D13FE9 /* MyCars.xcdatamodeld */,
-				358A82FB1DD2EA530043EADA /* Car+CoreDataClass.swift */,
-				358A82FC1DD2EA530043EADA /* Car+CoreDataProperties.swift */,
+				3290A594243B5BF6008D4C64 /* CoreData */,
 			);
 			path = MyCars;
 			sourceTree = "<group>";
@@ -116,6 +124,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
