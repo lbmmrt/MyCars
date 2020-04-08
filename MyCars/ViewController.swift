@@ -23,6 +23,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         getDataFromFile()
+        
         let fetchRequest: NSFetchRequest<Car> = Car.fetchRequest()
         let mark = segmentedControl.titleForSegment(at: 0)
         fetchRequest.predicate = NSPredicate(format: "mark == %@", mark!)
@@ -47,7 +48,7 @@ class ViewController: UIViewController {
         markLabel.text = selectedCar.mark
         modelLabel.text = selectedCar.model
         myChoiceImageView.isHidden = !(selectedCar.myChoice?.boolValue)!
-        ratingLabel.text = "Rating: \(String(describing: selectedCar.rating!)) / 10.0"
+        ratingLabel.text = "Rating: \(String(describing: selectedCar.rating!)) / 10"
         numberOfTripsLabel.text = "Number of trips \(String(describing: selectedCar.timesDriven!.intValue))"
         
         let df = DateFormatter()
@@ -113,6 +114,17 @@ class ViewController: UIViewController {
     
     @IBAction func segmentedCtrlPressed(_ sender: UISegmentedControl) {
         
+        let mark = sender.titleForSegment(at: sender.selectedSegmentIndex)
+        let fetchRequest: NSFetchRequest<Car> = Car.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "mark == %@", mark!)
+        
+        do {
+            let results = try context.fetch(fetchRequest)
+            selectedCar = results[0]
+            insertDataFrom(selectedCar: selectedCar)
+        } catch {
+            print(error.localizedDescription)
+        }
     }
     
     @IBAction func startEnginePressed(_ sender: UIButton) {
